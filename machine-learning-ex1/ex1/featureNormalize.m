@@ -36,7 +36,9 @@ sigma = std(X_norm);
 save muValue.mat mu;
 save sigmaValue.mat sigma;
 save NormX.mat X_norm;
-X_norm(:,1) = (X_norm(:,1) .- mu(1,1))./sigma(1,1);
+% X_norm(:,1) = (X_norm(:,1) .- mu(1,1))./sigma(1,1);
+X_norm = bsxfun(@minus,X_norm,mu);
+X_norm = bsxfun(@rdivide,X_norm,sigma);
 % ============================================================
 
 end

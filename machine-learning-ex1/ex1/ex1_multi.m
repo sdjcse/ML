@@ -87,11 +87,17 @@ save Xint.mat X
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 0.0001;
-num_iters = 1980;
+alpha = 0.001;
+num_iters = 1400;
+
+
 
 % Init Theta and Run Gradient Descent
 theta = zeros(3, 1);
+
+% compute and display initial cost
+computeCostMulti(X, y, theta);
+
 [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
 
 % Plot the convergence graph
@@ -112,7 +118,7 @@ fprintf('\n');
 price = 0; % You should change this
 normalizeSqFt = (mu(1,1)-1650)/sigma(1,1);
 
-normalizeBdRm = 3;
+normalizeBdRm = (mu(1,2)-3)/sigma(1,2);
 price = theta(2)*normalizeSqFt+normalizeBdRm*theta(3)+theta(1);
 
 % ============================================================
