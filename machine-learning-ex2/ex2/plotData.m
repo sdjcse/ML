@@ -17,11 +17,11 @@ figure;
 plus = find(y==1);
 dot = find(y==0);
 
-// Plotting plus values of first column to plus values of second column of X matrix
+% Plotting plus values of first column to plus values of second column of X matrix
 
-// Plot function properties mark as black plus and black dot
-// Put the black plus with the line of width 2 and the net marker size be it any say dot or plus
-// should be 7
+% Plot function properties mark as black plus and black dot
+% Put the black plus with the line of width 2 and the net marker size be it any say dot or plus
+% should be 7
 
 plot(X(plus,1),X(plus,2),'k+','LineWidth',2,'MarkerSize',7);
 hold;
