@@ -50,13 +50,24 @@ X = [ones(m, 1) X];
 %
 
 
-%initial_theta = zeroes(n+1,1);
+initial_theta = zeros(n+1,1);
 
-%options = optimset('GradObj', 'on', 'MaxIter', 50);
+save befteta.mat num_labels;
 
-%[theta] = ...
-%  fmincg (@(t)(lrCostFunction(t,X,))
-%  );
+options = optimset('GradObj', 'on', 'MaxIter', 50);
+
+save thisisY.mat y;
+
+for c=1:num_labels
+initial_theta = all_theta(c,:);
+[temp_theta] = ...
+  fmincg (@(t)(lrCostFunction(t,X,(y==c),lambda)), ...
+          initial_theta(:),options
+  );
+  all_theta(c,:) = temp_theta';
+end
+
+save teta.mat all_theta;
 
 % =========================================================================
 
